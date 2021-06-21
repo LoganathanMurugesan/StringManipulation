@@ -11,7 +11,8 @@ namespace StringManipulation
         {
             //StringConversion();
             //StringAsArray();
-            StringBuilderDemo();
+            //StringBuilderDemo();
+            WorkingWithArrays();
         }
 
         private static void StringConversion()
@@ -54,7 +55,7 @@ namespace StringManipulation
 
             stopwatch.Stop();
 
-            Console.WriteLine($"Time taken in milli seconds: {stopwatch.ElapsedMilliseconds}");
+            Console.WriteLine($"Time taken in milli seconds for string: {stopwatch.ElapsedMilliseconds}");
 
 
 
@@ -63,14 +64,31 @@ namespace StringManipulation
 
             StringBuilder strBuilder = new();
 
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 1000000; i++)
             {
                 strBuilder.Append(i);
             }
 
             builderStopwatch.Stop();
 
-            Console.WriteLine($"Time taken in milli seconds: {builderStopwatch.ElapsedMilliseconds}");
+            Console.WriteLine($"Time taken in milli seconds for stringbuilder: {builderStopwatch.ElapsedMilliseconds}");
+        }
+
+        private static void WorkingWithArrays()
+        {
+            int[] ages = { 1,2,3,4,5,6,7,8};
+            string results;
+
+            results = String.Concat(ages);
+            Console.WriteLine(results);
+
+            results = String.Join("->",ages);
+            Console.WriteLine(results);
+
+            string testString = "A,B,C,D,E,F";
+            string[] result = testString.Split(',');
+
+            Array.ForEach(result, x => Console.WriteLine(x));
         }
     }
 }
