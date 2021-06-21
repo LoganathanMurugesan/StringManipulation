@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
+using System.Text;
 
 namespace StringManipulation
 {
@@ -7,7 +9,9 @@ namespace StringManipulation
     {
         static void Main(string[] args)
         {
-            StringConversion();
+            //StringConversion();
+            //StringAsArray();
+            StringBuilderDemo();
         }
 
         private static void StringConversion()
@@ -24,6 +28,49 @@ namespace StringManipulation
             result = currentTextInfo.ToTitleCase(testString);
             Console.WriteLine(result);
 
+        }
+
+        private static void StringAsArray()
+        {
+            string name = "Loganathan";
+
+            for(int i = 0; i < name.Length; i++)
+            {
+                Console.WriteLine(name[i]);
+            }
+        }
+
+        private static void StringBuilderDemo()
+        {
+            Stopwatch stopwatch = new();
+            stopwatch.Start();
+
+            string str = "0";
+
+            for(int i = 0; i < 10000; i++)
+            {
+                str += i;
+            }
+
+            stopwatch.Stop();
+
+            Console.WriteLine($"Time taken in milli seconds: {stopwatch.ElapsedMilliseconds}");
+
+
+
+            Stopwatch builderStopwatch = new();
+            builderStopwatch.Start();
+
+            StringBuilder strBuilder = new();
+
+            for (int i = 0; i < 10000; i++)
+            {
+                strBuilder.Append(i);
+            }
+
+            builderStopwatch.Stop();
+
+            Console.WriteLine($"Time taken in milli seconds: {builderStopwatch.ElapsedMilliseconds}");
         }
     }
 }
