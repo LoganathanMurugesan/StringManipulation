@@ -90,5 +90,80 @@ namespace StringManipulation
 
             Array.ForEach(result, x => Console.WriteLine(x));
         }
+
+        private static void RemoveDuplicateCharacterFromString()
+        {
+            string str = "Loganathan";
+            int strLength = str.Length;
+            string result = "";
+
+            for (int i = 0; i < strLength; i++)
+            {
+                if (!result.Contains(str[i]))
+                {
+                    result += str[i];
+                }
+            }
+
+            Console.WriteLine(result);
+        }
+
+        private static void CountTheOccururencesOfCharacter()
+        {
+            string str = "Loganathan";
+            int strLength = str.Length;
+            int total = 1;
+
+            for (int i = 0; i < strLength; i++)
+            {
+                for (int j = 1; j < strLength; j++)
+                {
+                    if (str[i] == str[j])
+                    {
+                        total++;
+                    }
+                }
+                Console.WriteLine($"{str[i]} has total of {total}");
+                total = 0;
+            }
+        }
+
+        private static void ReverseWordsInSentenceWithoutChangingTheOrder()
+        {
+            string str = "The path of the righteous man is beset on all sides";
+            string[] strArray = str.Split(" ");
+            string result = "";
+
+            for (int i = 0; i < strArray.Length; i++)
+            {
+                for (int j = strArray[i].Length - 1; j >= 0; j--)
+                {
+                    result += strArray[i][j];
+                }
+
+                result += " ";
+            }
+
+            Console.WriteLine(result);
+        }
+
+        private static void RevereseStringAndPalindrome()
+        {
+            string str = "madam";
+            int strLength = str.Length - 1;
+            string result = "";
+
+            for (int i = strLength; i >= 0; i--)
+            {
+                result += str[i];
+            }
+
+            if (str == result)
+                Console.WriteLine($"{str} is a palindrome");
+            else
+                Console.WriteLine($"{str} is not a palindrome");
+
+            Console.WriteLine(result);
+        }
     }
 }
